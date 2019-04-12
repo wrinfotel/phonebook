@@ -14,8 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <script>
 
-
-
 </script>
 <div class="phonebook-index">
 
@@ -27,8 +25,10 @@ $this->params['breadcrumbs'][] = $this->title;
 				'model' => $model,
 			]) ?>
 			<?php Pjax::begin(['id' => 'users']) ?>
+			<div class="table-responsive">
 			<?= GridView::widget([
 				'dataProvider' => $dataProvider,
+				
 				'rowOptions' => function ($model, $key, $index, $grid) {
 					return ['id' => $model['id'], 'style' => "cursor: pointer", 'onclick' => 'openEdit(this.id);'];
 				},
@@ -39,6 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				
 				],
 			]); ?>
+			</div>
 			<?php Pjax::end() ?>
 		</div>
 		<div class="col-sm-6">
